@@ -1,6 +1,6 @@
-import Category from "../Stock-Sistem/models/CategoryModel.js";
-import Product from "../Stock-Sistem/models/ProductModel.js";
-import Supplier from "../Stock-Sistem/models/SupplierModel.js";
+import Category from "../models/CategoryModel.js";
+import Product from "../models/ProductModel.js";
+import Supplier from "../models/SupplierModel.js";
 import { isInputEmpty } from "../utils/validationRegister.js"
 import { Op } from 'sequelize'
 export default class ProductController {

@@ -1,5 +1,5 @@
-import Login from '../Stock-Sistem/models/LoginModel.js';
-import User from '../Stock-Sistem/models/UserModel.js';
+import Login from '../models/LoginModel.js';
+import User from '../models/UserModel.js';
 import { isInputEmpty } from '../utils/validationRegister.js'
 import bcrypt from 'bcryptjs'
 

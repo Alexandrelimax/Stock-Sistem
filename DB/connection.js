@@ -1,10 +1,10 @@
-import User from '../Stock-Sistem/models/UserModel.js';
-import Category from '../Stock-Sistem/models/CategoryModel.js';
-import Login from '../Stock-Sistem/models/LoginModel.js';
-import Product from '../Stock-Sistem/models/ProductModel.js';
+import User from '../models/UserModel.js';
+import Category from '../models/CategoryModel.js';
+import Login from '../models/LoginModel.js';
+import Product from '../models/ProductModel.js';
 import { Sequelize } from 'sequelize';
 import dotenv from 'dotenv';
-import Supplier from '../Stock-Sistem/models/SupplierModel.js';
+import Supplier from '../models/SupplierModel.js';
 dotenv.config();
 
 
