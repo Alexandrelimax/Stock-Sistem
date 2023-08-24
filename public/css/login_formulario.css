@@ -1,0 +1,22 @@
+.container-formulario {
+    padding: 0 15px;
+    max-width: 500px;
+    margin: 20px auto;
+    color: rgb(190, 241, 7);
+}
+
+.container-formulario h1 {
+    text-align: center;
+    margin-bottom: 1em;
+    
+}
+
+.avisosSpan {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.avisosSpan span:nth-child(2) {
+    margin-bottom: 15px;
+}

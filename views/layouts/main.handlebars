@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Estoque</title>
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <div class="logo">
+            <a href="#">LOGO</a>
+        </div>
+        <ul class="menu">
+            {{#if session.UserId}}
+
+            <li><a href="/logout">Sair</a></li>
+            {{else}}
+
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Criar conta</a></li>
+
+            {{/if}}
+        </ul>
+    </nav>
+    {{#if session.UserId}}
+    <main class="main-container">
+        <section>
+            <ul class="sidebar">
+                <li><i class="bi bi-pen"></i><a href="/products/add">Cadastrar</a></li>
+                <li><i class="bi bi-graph-up-arrow"></i><a href="/products/chart">Gráfico</a></li>
+                <li><i class="bi bi-search"></i><a href="/products/search">Consultar</a></li>
+                <li><i class="bi bi-bar-chart-line"></i><a href="/report">Relatório</a></li>
+
+            </ul>
+        </section>
+        {{/if}}
+        <section class="main-area">
+            <section class="message-flash-container">
+                {{#if messages.error}}
+                <div class="error-message">
+                    {{messages.error}}
+                </div>
+                {{/if}}
+                {{#if messages.success}}
+                <div class="success-message">
+                    {{messages.success}}
+                </div>
+                {{/if}}
+            </section>
+
+            {{{body}}}
+        </section>
+    </main>
+    <footer>
+        <p>Desenvolvido por <span>Alexandre Lima &copy;</span></p>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

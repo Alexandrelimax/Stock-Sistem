@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/css/tablesSearch.css">
+
+<div class="container-registerProduct">
+    <h1>Filtrar por:</h1>
+    <div class="form-group">
+        <ul>
+            <a href="" id="sortByName">nome</a>
+            <a href="" id="sortByPrice">preço</a>
+            <a href="" id="sortByCategory">categoria</a>
+            <a href="" id="sortByDate">últimos cadastrados</a>
+        </ul>
+        <div class="search-input">
+            <label for="nome" class="form-label">Procure aqui:</label>
+            <input type="text" name="search" placeholder="Digite o nome do produto">
+        </div>
+    </div>
+    <div class="tabelas">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Preco</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Fornecedor</th>
+                    <th scope="col">Quantidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <th scope="row">{{this.id}}</th>
+                    <td>{{this.name}}</td>
+                    <td>R${{this.price}}</td>
+                    <td>
+                        <select class="categorySelect">
+                            {{#each category}}
+                            <option value="{{this}}">{{this}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                                        <td>
+                        <select class="categorySelect">
+                            {{#each supplier}}
+                            <option value="{{this}}">{{this}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                    <td>{{this.quantity}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="/js/apiSearch.js"></script>

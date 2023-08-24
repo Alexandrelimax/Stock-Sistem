@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/css/login_formulario.css">
+
+
+
+<div class="container-formulario">
+    <h1>Estoque.com</h1>
+    <form action="/login" method="post">
+        <div class="mb-3">
+            <label for="email" class="form-label">Login:</label>
+            <input type="text" class="form-control" name="email" placeholder="Digite seu Login">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha:</label>
+            <input type="text" class="form-control" name="password" placeholder="Digite sua senha">
+        </div>
+        <div class="avisosSpan">
+            <span>Não possui conta?<a href="/register">Clique aqui</a></span>
+            <span>Esqueceu sua senha? <a href="">Clique aqui</a> </span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

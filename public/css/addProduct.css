@@ -1,0 +1,74 @@
+/* Estilos gerais para o formulário */
+.container-registerProduct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 ;
+    padding: 20px;
+
+
+}
+form{
+    min-width: 500px;
+}
+h1 {
+    text-align: center;
+    color: rgb(153, 228, 3);
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: rgb(153, 228, 3);
+}
+
+.form-control {
+    width: 100%;
+    padding: 3px 8px;
+       
+
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.categoryAndPrice {
+    display: flex;
+    gap: 10px;
+
+}
+
+.categoryAndPrice input[name="price"] {
+    width: 130px;
+    /* Defina o tamanho desejado para o input de preço */
+}
+
+.categoryAndPrice input[name="categoria"] {
+    width: 250px;
+    /* Defina o tamanho desejado para o input de categoria */
+}
+
+/* Estilos para o botão de submit */
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #00b327;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #00b327;
+}

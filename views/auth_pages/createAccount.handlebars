@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/css/login_formulario.css">
+
+
+
+<div class="container-formulario">
+    <h1>Crie sua conta aqui</h1>
+    <form action="/register" method="post">
+        <div class="mb-3">
+            <label for="first_name" class="form-label">Nome:</label>
+            <input type="text" class="form-control" name="first_name" placeholder="Digite seu nome" required>
+        </div>
+        <div class="mb-3">
+            <label for="last_name" class="form-label">Sobrenome:</label>
+            <input type="text" class="form-control" name="last_name" placeholder="Digite seu sobrenome" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" name="email" placeholder="Digte seu email" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha:</label>
+            <input type="password" class="form-control" name="password" placeholder="Digite sua senha" required>
+        </div>
+        <div class="mb-3">
+            <label for="passwordMatch" class="form-label">Confirme sua senha:</label>
+            <input type="password" class="form-control" name="passwordMatch" placeholder="Confirme aqui sua senha" required>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="news" checked >
+            <label class="form-check-label" for="flexCheckChecked">
+                Eu aceito os termos de uso
+            </label>
+        </div>
+        <p>Já possui conta? <span><a href="/login">Clique aqui</a></span></p>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

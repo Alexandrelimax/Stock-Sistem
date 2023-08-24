@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/css/report.css">
+
+<div class="report">
+    <div class="header-report">
+        <h1>Relatório de Produtos</h1>
+        
+    </div>
+
+    <div class="table-container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Preco</th>
+                    <th>Categoria</th>
+                    <th>Fornecedor</th>
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each list}}
+                <tr>
+                    <td>{{@index}}</td>
+                    <td>{{this.name}}</td>
+                    <td>R${{this.price}}</td>
+                    <td>{{this.category}}</td>
+                    <td>{{this.supplier}}</td>
+                    <td>{{this.quantity}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="download">
+        <a href="/report/pdf">Imprimir</a>
+    </div>
+
+    <div class="footer">
+        <p>Este é um relatório gerado automaticamente.</p>
+        <p>© 2023 Empresa XYZ. Todos os direitos reservados.</p>
+    </div>
+</div>
+<script src="/js/report.js"></script>
