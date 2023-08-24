@@ -6,8 +6,6 @@ O Stock Sistem é um sistema de gerenciamento de estoque desenvolvido utilizando
 
 - Cadastro de produtos
 - Listagem de produtos
-- Atualização de produtos
-- Remoção de produtos
 - Geração de relatórios em PDF
 
 ## Tecnologias Utilizadas
