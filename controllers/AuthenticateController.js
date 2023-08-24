@@ -1,6 +1,6 @@
 import Login from '../models/LoginModel.js';
 import User from '../models/UserModel.js';
-import { isInputEmpty } from '../utils/validationRegister.js'
+import { isInputEmpty, invalidName } from '../utils/validationRegister.js'
 import bcrypt from 'bcryptjs'
 
 
@@ -16,13 +16,20 @@ export default class AuthenticateController {
         const collectionError = [];
 
         try {
-            isInputEmpty(req.body)
-            console.log(req.body);
+            if(isInputEmpty(req.body)){
+                req.flash('error', 'Os campos não podem estar vazios!');
+                return res.redirect('/register')
+            }
+            
 
             const { first_name, last_name, email, password, passwordMatch } = req.body;
             const userExist = await User.findAll({ where: { email } })
 
-            if (userExist) {
+            if(invalidName(first_name, last_name)){
+                collectionError.push('Os campos de nome e sobrenome devem conter apenas letras maiúsculas e minúsculas!')
+            }
+
+            if (userExist.length > 0) {
                 collectionError.push('Este usuário já existe')
             }
             if (password !== passwordMatch) {
@@ -33,7 +40,7 @@ export default class AuthenticateController {
                 collectionError.forEach((err) => {
                     req.flash('error', err)
                 })
-                return res.render('auth_pages/createAccount')
+                return res.redirect('/register')
             }
             const salt = await bcrypt.genSalt(10);
             const hashPassword = await bcrypt.hash(password, salt);
@@ -58,22 +65,27 @@ export default class AuthenticateController {
 
 
     static async enterSystem(req, res) {
+        
 
-        isInputEmpty(req.body);
+        if(isInputEmpty(req.body)){
+            req.flash('error', 'Os campos não podem estar vazios!');
+            return res.redirect('/login');
+        }
+
         const { email, password } = req.body;
 
         try {
             const userExist = await Login.findOne({ where: { email } })
 
             if (!userExist) {
-                req.flash('erro', 'Este email não existe');
-                return res.render('auth_pages/login');
+                req.flash('error', 'Este email não existe');
+                return res.redirect('/login');
             }
             const passwordMatch = await bcrypt.compare(password, userExist.password);
 
             if (!passwordMatch) {
-                req.flash('erro', 'Senha incorreta');
-                return res.render('auth_pages/login');
+                req.flash('error', 'Senha incorreta');
+                return res.redirect('/login');
             }
 
             const user = await User.findOne({ where: { email } }, { raw: true })
