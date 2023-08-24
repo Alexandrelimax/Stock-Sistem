@@ -4,7 +4,7 @@ import { validSession } from '../middleware/SessionService.js';
 const reportRoutes = Router();
 
 
-reportRoutes.get('/', ReportController.showReport);
+reportRoutes.get('/',validSession, ReportController.showReport);
 reportRoutes.get('/pdf', validSession, ReportController.makePdf);
 
 export default reportRoutes;

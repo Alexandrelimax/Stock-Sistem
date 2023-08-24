@@ -9,7 +9,7 @@ export default class AuthenticateController {
     static showRegister(req, res) {
         res.render('auth_pages/createAccount')
     }
-    
+
 
     static async saveRegister(req, res) {
 
@@ -29,7 +29,12 @@ export default class AuthenticateController {
                 collectionError.push(' A senha e a confirmação de senha não são iguais');
             }
 
-
+            if (collectionError.length > 0) {
+                collectionError.forEach((err) => {
+                    req.flash('error', err)
+                })
+                return res.render('auth_pages/createAccount')
+            }
             const salt = await bcrypt.genSalt(10);
             const hashPassword = await bcrypt.hash(password, salt);
 
@@ -71,7 +76,7 @@ export default class AuthenticateController {
                 return res.render('auth_pages/login');
             }
 
-            const user = await User.findOne({where:{email}}, { raw: true })
+            const user = await User.findOne({ where: { email } }, { raw: true })
 
             req.session.UserId = user.id;
 
@@ -80,7 +85,7 @@ export default class AuthenticateController {
 
         } catch (error) {
             console.error(error);
-            res.status(500).json({ message: error.message })
+            res.status(500).send('Erro no servidor')
         }
     }
 

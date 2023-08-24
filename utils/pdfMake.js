@@ -55,7 +55,7 @@ export function createPdf(list) {
 
             },
             {
-                text: 'Este é um relatório gerado automaticamente.\n© 2023 Empresa XYZ. Todos os direitos reservados.',
+                text: 'Rio de Janeiro, Brasil.\n© 2023 Empresa blá.',
                 fontSize:15,
                 alignment: 'center',
                 margin: [0, 20, 0, 0],
