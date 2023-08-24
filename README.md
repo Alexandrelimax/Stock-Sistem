@@ -19,3 +19,11 @@ O Stock Sistem é um sistema de gerenciamento de estoque desenvolvido utilizando
 - Bcrypt.js (Criptografia de senhas)
 - PDFMake (Geração de relatórios em PDF)
 - Dotenv (Variáveis de ambiente)
+
+
+
+## Foto
+
+![estoque com](https://github.com/Alexandrelimax/Stock-Sistem/assets/96657257/bd8501e6-e290-4c83-85ea-2931a8dae3cf)
+
+
