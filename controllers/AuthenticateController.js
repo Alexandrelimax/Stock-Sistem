@@ -13,13 +13,13 @@ export default class AuthenticateController {
 
     static async saveRegister(req, res) {
 
+        if(isInputEmpty(req.body)){
+            req.flash('error', 'Os campos não podem estar vazios!');
+            return res.redirect('/register')
+        }
         const collectionError = [];
 
         try {
-            if(isInputEmpty(req.body)){
-                req.flash('error', 'Os campos não podem estar vazios!');
-                return res.redirect('/register')
-            }
             
 
             const { first_name, last_name, email, password, passwordMatch } = req.body;
