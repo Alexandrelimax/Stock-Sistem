@@ -5,30 +5,31 @@
   <form action="/products/add" method="post">
     <div class="form-group">
       <label for="nome" class="form-label">Nome:</label>
-      <input type="text" class="form-control" name="name" placeholder="Digite o nome do produto">
-      
+      <input type="text" class="form-control" name="name" placeholder="Digite o nome do produto" required>
+
     </div>
     <div class="categoryAndPrice">
       <div class="form-group">
         <label for="price" class="form-label">Preço unitário:</label>
-        <input type="text" class="form-control" name="price" placeholder="R$ 00,00">
+        <input type="text" class="form-control" name="price" placeholder="R$ 00,00" required>
       </div>
       <div class="form-group">
         <label for="categoria" class="form-label">Categoria:</label>
-        <input type="text" class="form-control" name="category" placeholder="Digite a categoria do produto">
+        <input type="text" class="form-control" name="category" placeholder="Digite a categoria do produto" required>
       </div>
     </div>
     <div class="form-group">
       <label for="quantidade" class="form-label">Quantidade:</label>
-      <input type="number" class="form-control" name="quantity">
+      <input type="number" class="form-control" name="quantity" required>
     </div>
-        <div class="form-group">
+    <div class="form-group">
       <label for="quantidade" class="form-label">Fornecedor:</label>
-      <input type="text" class="form-control" name="supplier">
+      <input type="text" class="form-control" name="supplier" required>
     </div>
     <div class="form-group">
       <label for="datasheet" class="form-label">Ficha Técnica:</label>
-      <textarea name="datasheet" class="form-control" cols="20" rows="2" placeholder="Descreva a ficha tecnica do produto"></textarea>
+      <textarea name="datasheet" class="form-control" cols="20" rows="2"
+        placeholder="Descreva a ficha tecnica do produto (opcional)"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
   </form>

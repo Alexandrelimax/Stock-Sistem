@@ -14,12 +14,22 @@ export default class ProductController {
         const collectionError = []
         isInputEmpty(req.body, collectionError);
 
-        const { name, price, category, supplier, quantity } = req.body;
+        const { name, price, category, supplier, quantity, datasheet } = req.body;
+
+
+        if(quantity < 1){
+            collectionError.push('Você precisa cadastrar ao menos um produto')
+        }
+
+
 
         try {
             const product = await Product.findOne({ where: { name } });
 
-            if (collectionError > 0) {
+            if (collectionError.length > 0) {
+                collectionError.forEach((err)=> {
+                    req.flash('error', err)
+                })
                 return res.redirect('/products/add')
             }
 
@@ -54,7 +64,7 @@ export default class ProductController {
 
             } else {
 
-                const newProduct = await Product.create({ name, price, quantity, })
+                const newProduct = await Product.create({ name, price, quantity, datasheet })
 
                 await newProduct.addCategory(categoryProduct);
                 await newProduct.addSupplier(supplierProduct);

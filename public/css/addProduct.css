@@ -1,12 +1,9 @@
-/* Estilos gerais para o formulário */
 .container-registerProduct {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 ;
     padding: 20px;
-
-
 }
 form{
     min-width: 500px;
@@ -30,8 +27,6 @@ h1 {
 .form-control {
     width: 100%;
     padding: 3px 8px;
-       
-
 }
 
 textarea.form-control {
@@ -40,21 +35,13 @@ textarea.form-control {
 
 .categoryAndPrice {
     display: flex;
+    justify-content: space-between;
     gap: 10px;
 
 }
-
-.categoryAndPrice input[name="price"] {
-    width: 130px;
-    /* Defina o tamanho desejado para o input de preço */
-}
-
-.categoryAndPrice input[name="categoria"] {
+.categoryAndPrice input{
     width: 250px;
-    /* Defina o tamanho desejado para o input de categoria */
 }
-
-/* Estilos para o botão de submit */
 .btn-primary {
     display: block;
     width: 100%;
@@ -70,5 +57,5 @@ textarea.form-control {
 }
 
 .btn-primary:hover {
-    background-color: #00b327;
+    background-color: #2ac534;
 }

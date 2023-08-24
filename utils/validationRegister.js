@@ -2,8 +2,10 @@
 export const isInputEmpty = (elements, err) => {
 
     for (let item in elements) {
-        if (elements[item] === '')
+        if (elements[item] === ''){
             err.push('Os campos não podem estar vazios!')
+            break
+        }
     }
 }
 

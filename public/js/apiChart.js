@@ -1,7 +1,7 @@
 const barCtx = document.getElementById('barChart').getContext('2d');
 const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
-
-
+const container = document.querySelector('.container-canvas');
+const warning = document.querySelector('.alert')
 document.addEventListener('DOMContentLoaded', () => {
 
     fetch('http://localhost:3000/products/chart/API')
@@ -11,10 +11,24 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
     })
     .then(products =>{
-        
+        if(products.length === 0){
+
+            container.style.display = 'none'
+
+            const notification = alertIsEmpty();
+            warning.append(notification);
+        }else{
+            warning.style.display = 'none'
+        }
+
+
         const labels = products.map(product => product.name);
         const quantity = products.map(product => product.quantity);
         const price = products.map(products => products.price)
+        const cores = products.reduce((acc, item)=>{
+            acc.push(geraCor());
+            return acc;
+        },[])
         
         
         // Gráfico Torta
@@ -25,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 datasets: [{
                     label: 'quantidade',
                     data: quantity,
-                    backgroundColor: returnColors(),
+                    backgroundColor: cores,
                     borderWidth: 1.5
                 }]
             },
@@ -44,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 datasets: [{
                     label: 'preço',
                     data: price,
-                    backgroundColor: returnColors(),
+                    backgroundColor: cores,
                     borderWidth: 1.5
                 }]
             }
@@ -56,16 +70,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-function returnColors() {
-    const colors = [
-        'rgba(255, 99, 132, 0.8)', // Vermelho
-        'rgba(54, 162, 235, 0.8)', // Azul
-        'rgba(255, 206, 86, 0.8)', // Amarelo
-        'rgba(75, 192, 192, 0.8)', // Verde
-        'rgba(153, 102, 255, 0.8)', // Roxo
-        'rgba(255, 159, 64, 0.8)' // Laranja
-    ];
-    return colors
+
+
+function geraCor(){
+    const red = Math.floor(Math.random() * 256)
+    const blue = Math.floor(Math.random() * 256)
+    const green = Math.floor(Math.random() * 256)
+
+    const rgb = (`rgb(${red}, ${blue}, ${green})`)
+
+    return rgb;
 }
 
 
+function alertIsEmpty(){
+    const p = document.createElement('p');
+
+    p.innerHTML = `Cadastre um produto, a lista está vazia!!!`
+
+    return p;
+
+
+
+
+
+}

@@ -15,6 +15,10 @@ export default class Product extends Model {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      datasheet: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
     },
       {
         sequelize,
