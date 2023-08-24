@@ -26,7 +26,8 @@ O Stock Sistem é um sistema de gerenciamento de estoque desenvolvido utilizando
 
 ![estoque com](https://github.com/Alexandrelimax/Stock-Sistem/assets/96657257/bd8501e6-e290-4c83-85ea-2931a8dae3cf)
 
-![Screenshot_5](https://github.com/Alexandrelimax/Stock-Sistem/assets/96657257/b48722df-68bd-4ee3-bcfa-d4530ae0b3f2)
+![Screenshot_8](https://github.com/Alexandrelimax/Stock-Sistem/assets/96657257/7babcb0f-b763-485f-b885-a354fdff4c4a)
+
 
 
 
